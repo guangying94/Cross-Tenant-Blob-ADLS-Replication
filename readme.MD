@@ -11,6 +11,9 @@ This function monitor files created in **source** folder in blob storage. Update
             string name, 
             ILogger log)
 ```
+
+For development locally, rename the file _sample.local.settings.json_ to _local.settings.json_.
+
 ### Authentication
 The data source in this case, is Azure Blob Storage, and the destination is Azure Data Lake Store Gen 2.
 
