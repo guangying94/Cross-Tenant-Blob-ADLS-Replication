@@ -1,5 +1,5 @@
 # Sample code for Azure Functions - cross tenant blob to ADLS file replication
-This repository contains sample code for Azure Functions to replicate file between 2 Azure tenants.
+This repository contains sample code for Azure Functions to replicate file between 2 Azure tenants. Full details here in medium post: [How to use Azure Private Link for Secured Cross Tenant Data Replication Near Real Time](https://marcustee.medium.com/how-to-use-azure-private-link-for-secured-cross-tenant-data-replication-near-real-time-963de887bdc5)
 
 ## Details
 This function monitor files created in **source** folder in blob storage. Update the trigger accordingly.
