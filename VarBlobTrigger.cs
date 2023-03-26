@@ -1,22 +1,19 @@
 using System;
 using System.IO;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Extensions.Logging;
-using Azure.Storage.Files.DataLake;
-using Azure.Storage;
-using Azure.Identity;
 using System.Threading.Tasks;
+using Azure.Identity;
+using Azure.Storage;
+using Azure.Storage.Files.DataLake;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Extensions.Logging;
 
 namespace CrossTenantBlobADLSReplication
 {
-    public class NewBlobTrigger
+    public class VarBlobTrigger
     {
-        [FunctionName("NewBlobTrigger")]
-        public async Task Run(
-            [BlobTrigger("source/{name}",
-            Connection = "SOURCE_BLOB_CONNECTION_STRING")]Stream myBlob, 
-            string name, 
-            ILogger log)
+        [FunctionName("VarBlobTrigger")]
+        public async Task Run([BlobTrigger("%source_container%/{name}", Connection = "SOURCE_BLOB_CONNECTION_STRING")]Stream myBlob, string name, ILogger log)
         {
             log.LogInformation($"C# Blob trigger function Processed blob\n Name:{name} \n Size: {myBlob.Length} Bytes.");
 
@@ -25,7 +22,7 @@ namespace CrossTenantBlobADLSReplication
                 // Check if parameters have ADLS account key
                 // If exist --> use Account key to authenticate to ADLS, else it will use MI to authenticate
                 string containerName = Environment.GetEnvironmentVariable("DEST_CONTAINER");
-                
+
                 if (Environment.GetEnvironmentVariable("DEST_ACCOUNT_KEY") == null)
                 {
                     DataLakeServiceClient adlsServiceClient = GetDataLakeServiceClientWithMI();
@@ -42,9 +39,9 @@ namespace CrossTenantBlobADLSReplication
 
                 log.LogInformation($"{name} is uplaoded successfully.");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                log.LogError(ex.Message );
+                log.LogError(ex.Message);
             }
         }
 
@@ -59,7 +56,6 @@ namespace CrossTenantBlobADLSReplication
 
             return dataLakeServiceClient;
         }
-        
 
         // Use Account key to authenticate
         public static DataLakeServiceClient GetDataLakeServiceClientWithAccountKey()

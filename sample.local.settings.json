@@ -1,12 +1,19 @@
 {
   "IsEncrypted": false,
-"Values": {
-  "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-  "FUNCTIONS_WORKER_RUNTIME": "dotnet",
-  "SOURCE_BLOB_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=XXXXXX;AccountKey=XXXXXXXXXXX;EndpointSuffix=core.windows.net",
-  "DEST_ACCOUNT_NAME": "<ADLS-ACCOUNT-NAME>",
-  "DEST_ACCOUNT_KEY": "<ADLS-ACCOUNT-KEY>",
-  "DEST_CONTAINER": "<DESTINATION-ADLS-CONTAINER-NAME>",
-  "DEST_DIRECTORY": "<DESTINATION-ADLS-DIRECTORY-NAME>"
-}
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "SOURCE_BLOB_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=XXXXXX;AccountKey=XXXXXXXXXXX;EndpointSuffix=core.windows.net",
+    "DEST_ACCOUNT_NAME": "<ADLS-ACCOUNT-NAME>",
+    "DEST_ACCOUNT_KEY": "<ADLS-ACCOUNT-KEY>",
+    "DEST_CONTAINER": "<DESTINATION-ADLS-CONTAINER-NAME>",
+    "DEST_DIRECTORY": "<DESTINATION-ADLS-DIRECTORY-NAME>",
+    "USE_EVENT_HUB": "<TRUE OR FALSE>",
+    "SOURCE_CONTAINER": "<SOURCE-ADLS-CONTAINER-NAME>",
+    "SOURCE_ACCOUNT_NAME": "<SOURCE-ADLS-ACCOUNT-NAME>",
+    "SOURCE_ACCOUNT_KEY": "<SOURCE-ADLS-ACCOUNT-KEY>",
+    "EVENT_HUB_NAME": "<EVENT-HUB-NAME-CREATED-INSIDE-EVENT-HUB-NAMESPACE>",
+    "EVENT_HUB_CONNECTION_STRING": "Endpoint=sb://xxxxx.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=xxxxx",
+    "EVENT_HUB_NAMESPACE_NAME": "<EVENT-HUB-NAMESPACE-NAME>"
+  }
 }
