@@ -3,6 +3,7 @@
   "Values": {
     "AzureWebJobsStorage": "UseDevelopmentStorage=true",
     "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "SOURCE_BLOB_CONTAINER": "<BLOB-SOURCE-CONTAINER>",
     "SOURCE_BLOB_CONNECTION_STRING": "DefaultEndpointsProtocol=https;AccountName=XXXXXX;AccountKey=XXXXXXXXXXX;EndpointSuffix=core.windows.net",
     "DEST_ACCOUNT_NAME": "<ADLS-ACCOUNT-NAME>",
     "DEST_ACCOUNT_KEY": "<ADLS-ACCOUNT-KEY>",
