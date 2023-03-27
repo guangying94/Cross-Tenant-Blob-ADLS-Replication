@@ -33,8 +33,8 @@ On the other hand, since Azure Functions and ADLS Gen 2 are running in the same 
 |DEST_DIRECTORY|Directory within the container of destination Azure Data Lake Storage Gen 2 above|Mandatory|
 |USE_EVENT_HUB|Option to use Azure Event Hub as logging on the status of replication. Accept "TRUE" or "FALSE".|Optional|
 |EVENT_HUB_NAME| Name of the event hub created inside Azure Event Hub namespace|Optional, required if **USE_EVENT_HUB** is set to "TRUE"|
-|EVENT_HUB_CONNECTION_STRING|Connection string of event hub. Required if connection string is used for authentication|Optional, depends on key or managed identity is used for authentication|
-|EVENT_HUB_NAMESPACE_NAME| Name of the Azure Event Hub Namespace| Optional, depends on key or managed identity is used for authentication|
+|EVENT_HUB_CONNECTION_STRING|Connection string of event hub. Required if connection string is used for authentication. Without connection string, Azure Functions will use Managed Identity to authenticate|Optional, needed if key is used for authentication|
+|EVENT_HUB_NAMESPACE_NAME| Name of the Azure Event Hub Namespace| Optional, needed if managed identity is used for authentication|
 
 ### Architecture
 ![architecture.png](assets/architecture.png)
@@ -61,8 +61,8 @@ In this cross tenant scenario, the trigger is Azure Event Hub. Azure Event Hub s
 |DEST_DIRECTORY|Directory within the container of destination Azure Data Lake Storage Gen 2 above|Mandatory|
 |USE_EVENT_HUB|Option to use Azure Event Hub as logging on the status of replication. Accept "TRUE" or "FALSE".|Optional|
 |EVENT_HUB_NAME| Name of the event hub created inside Azure Event Hub namespace|Optional, required if **USE_EVENT_HUB** is set to "TRUE"|
-|EVENT_HUB_CONNECTION_STRING|Connection string of event hub. Required if connection string is used for authentication|Optional, depends on key or managed identity is used for authentication|
-|EVENT_HUB_NAMESPACE_NAME| Name of the Azure Event Hub Namespace| Optional, depends on key or managed identity is used for authentication|
+|EVENT_HUB_CONNECTION_STRING|Connection string of event hub. Required if connection string is used for authentication. Without connection string, Azure Functions will use Managed Identity to authenticate|Optional, needed if key is used for authentication|
+|EVENT_HUB_NAMESPACE_NAME| Name of the Azure Event Hub Namespace| Optional, needed if managed identity is used for authentication|
 
 ### Architecture
 ![architecture.png](assets/adls_to_adls.png)
